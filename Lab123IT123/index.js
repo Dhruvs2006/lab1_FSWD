@@ -8,7 +8,7 @@ const addMovie = (collection,movie)=>{
     collection.push(movie);
 };
 
-addMovie(movies,{title:"Tenet",genre:"Sci-fi",rating:7.5,realeaseYear:2020});
+addMovie(movies,{title:"Prometheus",genre:"Sci-fi",rating:7.5,releaseYear:2022});
 console.log(movies);
 
 const listMoviesByGenre = (collection,genre)=>{
@@ -39,3 +39,19 @@ movies.forEach(movie => {
     console.log(`${movie.title} (${movie.releaseYear}) is a ${movie.genre} movie with a rating of ${movie.rating}.`);
 });
 
+const matchVariable = (collection,title)=>{
+    return collection.filter(movie => movie.title.includes(title));
+};
+
+console.log(matchVariable(movies,'Aa'));
+
+function longestTitle()
+{
+    const longestTitle = movies.reduce((max, movie) => (movie.title.length > max.title.length ? movie : max));
+    console.log(`longestTitleMovie: ${longestTitle.title} with length ${longestTitle.title.length}`);
+};
+function smallestTitle()
+{
+    const smallestTitle = movies.reduce((min, movie) => (movie.title.length < min.title.length ? movie : min));
+    console.log(`smallestTitleMovie: ${smallestTitle.title} with length ${smallestTitle.title.length}`);
+};
